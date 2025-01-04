@@ -26,14 +26,14 @@ The dashboard shows that YTD profit margin for consumer has downward trend, whil
 - Step 9 : Create 'new measure' and use TimeIntelligence functions to calculate YTD Sales, YTD Profit, YTD Quantity, YTD Profit Margins      
 - Step 10 : Display the calculated KPIs using the 'Card' visual. Use formatting to display the currency or percentage symbols as appropriate. Using 'Area Chart', create a trendline graph to place under the calculated KPI. A filter is applied on this area filter to show values for a year as this is YTD measures. 
 - Step 12 : Use conditional formatting to display colors to indicate an upward or downward trend in the KPIs
-YTD Sales = TOTALYTD(sum(ecommerce_data[sales_per_order]),'Calendar'[Date])
-YoY Sales = ([YTD Sales]-[PYTD Sales])/[PYTD Sales]
-PYTD Sales = CALCULATE(sum(ecommerce_data[sales_per_order]), DATESYTD(SAMEPERIODLASTYEAR('Calendar'[Date])))
-Sales Icon = var positive_icon = UNICHAR(9650)
-             var negative_icon = UNICHAR(9660)
+-YTD Sales = TOTALYTD(sum(ecommerce_data[sales_per_order]),'Calendar'[Date])
+-YoY Sales = ([YTD Sales]-[PYTD Sales])/[PYTD Sales]
+-PYTD Sales = CALCULATE(sum(ecommerce_data[sales_per_order]), DATESYTD(SAMEPERIODLASTYEAR('Calendar'[Date])))
+-Sales Icon = var positive_icon = UNICHAR(9650)
+              var negative_icon = UNICHAR(9660)
                 var result = IF([YoY Sales]>0, positive_icon, negative_icon)
                 return result
-Sales Color = IF([YoY Sales]>0, "Green", "Red")
+-Sales Color = IF([YoY Sales]>0, "Green", "Red")
 
 
 - Step 13 : Apply a slicer based on Category for the display of dynamic values based on the category of products
